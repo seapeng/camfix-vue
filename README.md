@@ -1,4 +1,4 @@
-# blank-vue
+# finexo-vue
 
 ## Project setup
 ```

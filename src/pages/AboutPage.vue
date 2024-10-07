@@ -1,12 +1,12 @@
 <template>
-    <About></About>
+  <About></About>
 </template>
 <script>
 import About from '@/components/About.vue';
 
 export default {
-    components:{
-        About
-    }
+  components:{
+      About
+  }
 }
 </script>

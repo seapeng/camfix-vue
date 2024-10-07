@@ -1,7 +1,6 @@
 <template>
-  <p>Hello World</p>
   <div class="row">
-    <ReposCard v-for="(repo, index) in repos" :key="index" :title="repo.title" :thumb="repo.thumb"></ReposCard>
+    <ReposCard v-for="(repo, index) in repos" :key="index" :name="repo.name" :description="repo.description"></ReposCard>
   </div>
   
 </template>

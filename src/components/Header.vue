@@ -1,5 +1,5 @@
 <template>
-    <header id="header" class="header dark-background d-flex flex-column">
+  <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
@@ -24,10 +24,10 @@
       <ul>
         <li><router-link to="/"><i class="bi bi-house navicon"></i>ទំព័រដើម</router-link></li>
         <li><router-link to="service"><i class="bi bi-hdd-stack navicon"></i> សេវាកម្ម</router-link></li>
-        <li><router-link to="about"><i class="bi bi-person navicon"></i> About</router-link></li>
-        <li><router-link to="resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</router-link></li>
-        <li><router-link to="portfolio"><i class="bi bi-images navicon"></i> Portfolio</router-link></li>
-        <li><router-link to="contact"><i class="bi bi-envelope navicon"></i> Contact</router-link></li>
+        <li><router-link to="about"><i class="bi bi-person navicon"></i> អំពីយើង</router-link></li>
+        <li><router-link to="resume"><i class="bi bi-file-earmark-text navicon"></i> ប្រវត្តិ</router-link></li>
+        <li><router-link to="portfolio"><i class="bi bi-images navicon"></i> ស្នាដៃ</router-link></li>
+        <li><router-link to="contact"><i class="bi bi-envelope navicon"></i> ទំនាក់ទំនង</router-link></li>
       </ul>
     </nav>
   </header>
