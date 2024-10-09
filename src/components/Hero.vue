@@ -7,8 +7,7 @@
           <div class="container" data-aos="fade-up" data-aos-delay="100">
             <h1>Camfix</h1>
             <p>
-              I'm <span class="typed" id="typedMessage"></span>
-            
+              {{ $t('iam') }} <span class="typed" id="typedMessage"></span>
             </p>
           </div>
         </div>
@@ -23,7 +22,6 @@
 
 <script>
   import Typed from 'typed.js';
-
   export default {
     mounted() {
       this.typed = new Typed('#typedMessage', {
@@ -33,6 +31,11 @@
         backDelay: 2000,
         loop: true,
       });
+    },
+    methods:{
+      changeLang() {
+        this.$i18n.locale == "en"? this.$i18n.locale = "khm": this.$i18n.locale = "en"
+      }
     }
   }
 </script>

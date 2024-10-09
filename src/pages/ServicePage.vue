@@ -1,13 +1,12 @@
 <template>
   <section id="services" class="services section">
     <div class="container section-title" data-aos="fade-up">
-      <h2>សេវាកម្ម</h2>
-      <p>នាំមកនូវសេវាកម្មជាមួយនឹងបច្ចេកវិទ្យាថ្មីៗសម្រាប់ការអភិវឌ្ឍន៍ប្រព័ន្ធជូនដល់លោកអ្នកប្របកដោយ ប្រសិទ្ធភាព និងសុវត្តិភាព</p>
+      <h2>{{ $t('services') }}</h2>
     </div>
 
     <div class="container">
       <div class="row gy-4">
-        <ReposCard v-for="(repo, index) in repos" :key="index" :name="repo.name" :description="repo.description"></ReposCard>
+        <ServiceCard v-for="(repo, index) in repos" :key="index" :name="repo.name" :description="repo.description"></ServiceCard>
       </div>
     </div>
   </section>
@@ -15,13 +14,12 @@
 </template>
 
 <script>
-  import ReposCard from "@/components/cards/ReposCard.vue";
-  import useRepositoryStore from "@/store/repository.js";
+  import ServiceCard from "@/components/cards/ServiceCard.vue";
+  import useServiceStore from "@/store/service.js";
   import { mapActions, mapState } from "pinia";
   export default {
-  
     components: {
-      ReposCard,
+      ServiceCard,
     },
     data() {
       return {
@@ -29,15 +27,18 @@
       };
     },
     async created() {
-      await this.getAllRepositories();
-      console.log(this.repositories);
-      this.repos = this.repositories;
+      await this.getAllServices();
+      console.log(this.services);
+      this.repos = this.services;
     },
     computed: {
-      ...mapState(useRepositoryStore, ["repositories"]),
+      ...mapState(useServiceStore, ["services"]),
     },
     methods: {
-      ...mapActions(useRepositoryStore, ["getAllRepositories"]),
-    },
+      ...mapActions(useServiceStore, ["getAllServices"]),
+      changeLang() {
+        this.$i18n.locale == "en"? this.$i18n.locale = "khm": this.$i18n.locale = "en"
+      }
+    }
   };
 </script>

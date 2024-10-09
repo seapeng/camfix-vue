@@ -2,11 +2,12 @@
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
+    
     <div class="profile-img">
       <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
     </div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+    <a href="/" class="logo d-flex align-items-center justify-content-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
       <h1 class="sitename">Camfix Dev</h1>
@@ -22,13 +23,38 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><router-link to="/"><i class="bi bi-house navicon"></i>ទំព័រដើម</router-link></li>
-        <li><router-link to="service"><i class="bi bi-hdd-stack navicon"></i> សេវាកម្ម</router-link></li>
-        <li><router-link to="about"><i class="bi bi-person navicon"></i> អំពីយើង</router-link></li>
-        <li><router-link to="resume"><i class="bi bi-file-earmark-text navicon"></i> ប្រវត្តិ</router-link></li>
-        <li><router-link to="portfolio"><i class="bi bi-images navicon"></i> ស្នាដៃ</router-link></li>
-        <li><router-link to="contact"><i class="bi bi-envelope navicon"></i> ទំនាក់ទំនង</router-link></li>
+        <li v-for="(nav, index) in navs" :key="index">
+          <router-link :to="nav.path">
+            <i class="bi bi-hdd-stack navicon"></i> {{ $t(nav.name) }}
+          </router-link>
+        </li>
       </ul>
     </nav>
+
+    <div class="social-links text-center">
+      <a href="#" @click="changeLang()" class="twitter">{{this.$i18n.locale == "en"?"KH":"EN"}}</a>
+    </div>
+    
   </header>
 </template>
+
+<script>
+  export default {
+    data(){
+      return{
+        navs:[
+          {name:"home",path:"./"},
+          {name:"services",path:"./services"},
+          {name:"about",path:"./about"},
+          {name:"resume",path:"./resume"},
+          {name:"contact",path:"./contact"},
+        ]
+      }
+    },
+    methods:{
+      changeLang() {
+        this.$i18n.locale == "en"? this.$i18n.locale = "khm": this.$i18n.locale = "en"
+      }
+    }
+  }
+</script>
