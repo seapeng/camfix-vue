@@ -25,14 +25,17 @@
       <ul>
         <li v-for="(nav, index) in navs" :key="index">
           <router-link :to="nav.path">
-            <i class="bi bi-hdd-stack navicon"></i> {{ $t(nav.name) }}
+            <i :class="nav.icon"></i> {{ $t(nav.name) }}
           </router-link>
         </li>
       </ul>
     </nav>
 
-    <div class="social-links text-center">
-      <a href="#" @click="changeLang()" class="twitter">{{this.$i18n.locale == "en"?"KH":"EN"}}</a>
+    <div class="change-lang text-center">
+      <a href="#" @click="changeLang()">
+        <div v-if="this.$i18n.locale=='en'"><img src="assets/img/kh.png"></div>
+        <div v-else><img src="assets/img/en.png"></div>
+      </a>
     </div>
     
   </header>
@@ -43,11 +46,11 @@
     data(){
       return{
         navs:[
-          {name:"home",path:"./"},
-          {name:"services",path:"./services"},
-          {name:"about",path:"./about"},
-          {name:"resume",path:"./resume"},
-          {name:"contact",path:"./contact"},
+          {icon:'bi bi-house navicon', name:"home",path:"./"},
+          {icon:'bi bi-hdd-stack navicon', name:"services",path:"./services"},
+          {icon:'bi bi-person navicon', name:"about",path:"./about"},
+          {icon:'bi bi-file-earmark-text navicon', name:"resume",path:"./resume"},
+          {icon:'bi bi-envelope navicon', name:"contact",path:"./contact"},
         ]
       }
     },
