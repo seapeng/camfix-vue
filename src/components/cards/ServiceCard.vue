@@ -3,7 +3,7 @@
     <div class="icon flex-shrink-0"><i :class="icon"></i></div>
     <div>
       <h4 class="title">
-        <a href="service-details.html" class="stretched-link">{{ name }}</a>
+        <a href="#" class="stretched-link">{{ name }}</a>
       </h4>
       <p class="description">{{ description }}</p>
     </div>
