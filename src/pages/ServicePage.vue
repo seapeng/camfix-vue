@@ -6,7 +6,7 @@
 
     <div class="container">
       <div class="row gy-4">
-        <ServiceCard v-for="(repo, index) in repos" :key="index" :name="repo.name" :description="repo.description"></ServiceCard>
+        <ServiceCard v-for="(serv, index) in servs" :key="index" :icon="serv.icon" :name="serv.name" :description="serv.description"></ServiceCard>
       </div>
     </div>
   </section>
@@ -23,13 +23,13 @@
     },
     data() {
       return {
-        repos: [],
+        servs: [],
       };
     },
     async created() {
       await this.getAllServices();
-      console.log(this.services);
-      this.repos = this.services;
+      // console.log(this.services);
+      this.servs = this.services;
     },
     computed: {
       ...mapState(useServiceStore, ["services"]),
